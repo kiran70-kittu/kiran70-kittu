@@ -1,0 +1,26 @@
+import numpy as np 
+import matplotlib.pyplot as plt
+import seaborn as sns 
+import pandas as pd
+data = pd.read_csv("C:/Users/Soma/OneDrive/Desktop/Students.csv")
+# understanding the data 
+data.head()
+data.tail()
+data.shape
+data.describe()
+data.columns
+data.nunique()
+data['Gender'].unique()
+data['EthnicGroup'].unique()
+data.isnull().sum()
+student = data.drop(['EthnicGroup','ParentEduc',],axis=1)
+student.head()
+# Relationship Analysis
+corelation = student.corr()
+sns.heatmap(corelation,xticklabels=corelation.columns,yticklabels=corelation.columns,annot=True)
+sns.pairplot(student)
+#Scatterplot
+sns.relplot(x='MathScore', y='ReadingScore', hue='Gender', data=student)
+sns.histplot(data=student, x='MathScore')
+sns.catplot(x='MathScore',kind='box',data=student)
+sns.relplot(x='MathScore', y='ReadingScore', hue='LunchType', data=student)
