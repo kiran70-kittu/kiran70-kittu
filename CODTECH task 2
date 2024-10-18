@@ -1,0 +1,42 @@
+import numpy as np 
+import pandas as pd 
+import matplotlib.pyplo
+ df = pd.read_csv("C:/Users/DEEPIKA/OneDrive/Desktop/Mall_Customers.csv")
+ df.head()
+df.tail()
+ df.describe()
+ df.shape
+df.isnull().sum()
+ plt.figure(1, figsize=(15,6))
+ 137
+ 18
+ 83
+ n=0
+ for x in ['Age' ,'Annual Income (k$)','Spending Score (1-100)']:
+ n+=1
+ plt.subplot(1 , 3 , n)
+ plt.subplots_adjust(hspace =0.5 ,wspace =0.5)
+ sns.distplot(df[x],bins=20)
+ plt.title('Distplot of {}'.format(x))
+ plt.show()
+
+ plt.figure(figsize=(15,5))
+ sns.countplot(y='Gender',data=df)
+ plt.show()
+clusters =kmeans.fit_predict(X3)
+ df["label"] = clusters
+ from mpl_toolkits.mplot3d import Axes3D
+ fig = plt.figure(figsize=(20,10))
+ ax = fig.add_subplot(111,projection ='3d')
+ ax.scatter(df.Age[df.label==0],df["Annual Income (k$)"][df.label ==0],df["Spending 
+ax.scatter(df.Age[df.label==1],df["Annual Income (k$)"][df.label ==1],df["Spending 
+ax.scatter(df.Age[df.label==2],df["Annual Income (k$)"][df.label ==2],df["Spending 
+ax.scatter(df.Age[df.label==3],df["Annual Income (k$)"][df.label ==3],df["Spending 
+ax.scatter(df.Age[df.label==4],df["Annual Income (k$)"][df.label ==4],df["Spending 
+plt.xlabel("Age")
+ plt.ylabel("Annual Income (k$)")
+ ax.set_zlabel('Spending Score (1-100)')
+ plt.show()
+ kmeans =KMeans(n_clusters=5)
+ label = kmeans.fit_predict(X3)
+ print(label)
